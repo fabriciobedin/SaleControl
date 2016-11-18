@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ufController.selected != null}">
                         <p:outputLabel value="#{bundle.EditUfLabel_ufCodigo}" for="ufCodigo" />
-                        <p:inputText id="ufCodigo" value="#{ufController.selected.ufCodigo}" title="#{bundle.EditUfTitle_ufCodigo}" required="true" requiredMessage="#{bundle.EditUfRequiredMessage_ufCodigo}"/>
+                        <p:inputText id="ufCodigo" disabled="true" value="#{ufController.selected.ufCodigo}" title="#{bundle.EditUfTitle_ufCodigo}" required="true" requiredMessage="#{bundle.EditUfRequiredMessage_ufCodigo}"/>
                         <p:outputLabel value="#{bundle.EditUfLabel_ufDescricao}" for="ufDescricao" />
                         <p:inputText id="ufDescricao" value="#{ufController.selected.ufDescricao}" title="#{bundle.EditUfTitle_ufDescricao}" required="true" requiredMessage="#{bundle.EditUfRequiredMessage_ufDescricao}"/>
                         <p:outputLabel value="#{bundle.EditUfLabel_ufSigla}" for="ufSigla" />

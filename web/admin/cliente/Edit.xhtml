@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
                         <p:outputLabel value="#{bundle.EditClienteLabel_cliCodigo}" for="cliCodigo" />
-                        <p:inputText id="cliCodigo" value="#{clienteController.selected.cliCodigo}" title="#{bundle.EditClienteTitle_cliCodigo}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cliCodigo}"/>
+                        <p:inputText id="cliCodigo" disabled="true" value="#{clienteController.selected.cliCodigo}" title="#{bundle.EditClienteTitle_cliCodigo}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cliCodigo}"/>
                         <p:outputLabel value="#{bundle.EditClienteLabel_cliNome}" for="cliNome" />
                         <p:inputText id="cliNome" value="#{clienteController.selected.cliNome}" title="#{bundle.EditClienteTitle_cliNome}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cliNome}"/>
                         <p:outputLabel value="#{bundle.EditClienteLabel_cliCpf}" for="cliCpf" />

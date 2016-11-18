@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{fornecedorController.selected != null}">
                         <p:outputLabel value="#{bundle.EditFornecedorLabel_frnCodigo}" for="frnCodigo" />
-                        <p:inputText id="frnCodigo" value="#{fornecedorController.selected.frnCodigo}" title="#{bundle.EditFornecedorTitle_frnCodigo}" required="true" requiredMessage="#{bundle.EditFornecedorRequiredMessage_frnCodigo}"/>
+                        <p:inputText id="frnCodigo" disabled="true" value="#{fornecedorController.selected.frnCodigo}" title="#{bundle.EditFornecedorTitle_frnCodigo}" required="true" requiredMessage="#{bundle.EditFornecedorRequiredMessage_frnCodigo}"/>
                         <p:outputLabel value="#{bundle.EditFornecedorLabel_frnNome}" for="frnNome" />
                         <p:inputText id="frnNome" value="#{fornecedorController.selected.frnNome}" title="#{bundle.EditFornecedorTitle_frnNome}" required="true" requiredMessage="#{bundle.EditFornecedorRequiredMessage_frnNome}"/>
                         <p:outputLabel value="#{bundle.EditFornecedorLabel_frnCategoria}" for="frnCategoria" />

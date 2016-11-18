@@ -12,8 +12,6 @@
             <h:form id="CompraCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{compraController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCompraLabel_cmpCodigo}" for="cmpCodigo" />
-                        <p:inputText id="cmpCodigo" value="#{compraController.selected.cmpCodigo}" title="#{bundle.CreateCompraTitle_cmpCodigo}" required="true" requiredMessage="#{bundle.CreateCompraRequiredMessage_cmpCodigo}"/>
                         <p:outputLabel value="#{bundle.CreateCompraLabel_cmpValortotal}" for="cmpValortotal" />
                         <p:inputText id="cmpValortotal" value="#{compraController.selected.cmpValortotal}" title="#{bundle.CreateCompraTitle_cmpValortotal}" required="true" requiredMessage="#{bundle.CreateCompraRequiredMessage_cmpValortotal}"/>
                         <p:outputLabel value="#{bundle.CreateCompraLabel_cmpDatahora}" for="cmpDatahora" />

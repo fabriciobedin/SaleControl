@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{produtoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditProdutoLabel_prdCodigo}" for="prdCodigo" />
-                        <p:inputText id="prdCodigo" value="#{produtoController.selected.prdCodigo}" title="#{bundle.EditProdutoTitle_prdCodigo}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_prdCodigo}"/>
+                        <p:inputText id="prdCodigo" disabled="true" value="#{produtoController.selected.prdCodigo}" title="#{bundle.EditProdutoTitle_prdCodigo}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_prdCodigo}"/>
                         <p:outputLabel value="#{bundle.EditProdutoLabel_prdDescricao}" for="prdDescricao" />
                         <p:inputText id="prdDescricao" value="#{produtoController.selected.prdDescricao}" title="#{bundle.EditProdutoTitle_prdDescricao}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_prdDescricao}"/>
                         <p:outputLabel value="#{bundle.EditProdutoLabel_prdTamanho}" for="prdTamanho" />

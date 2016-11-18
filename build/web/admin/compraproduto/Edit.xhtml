@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{compraprodutoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCompraprodutoLabel_cprCodigo}" for="cprCodigo" />
-                        <p:inputText id="cprCodigo" value="#{compraprodutoController.selected.cprCodigo}" title="#{bundle.EditCompraprodutoTitle_cprCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_cprCodigo}"/>
+                        <p:inputText id="cprCodigo" disabled="true" value="#{compraprodutoController.selected.cprCodigo}" title="#{bundle.EditCompraprodutoTitle_cprCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_cprCodigo}"/>
                         <p:outputLabel value="#{bundle.EditCompraprodutoLabel_cprValorunitario}" for="cprValorunitario" />
                         <p:inputText id="cprValorunitario" value="#{compraprodutoController.selected.cprValorunitario}" title="#{bundle.EditCompraprodutoTitle_cprValorunitario}" />
                         <p:outputLabel value="#{bundle.EditCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />

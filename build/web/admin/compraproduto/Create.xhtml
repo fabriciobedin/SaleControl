@@ -12,8 +12,6 @@
             <h:form id="CompraprodutoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{compraprodutoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprCodigo}" for="cprCodigo" />
-                        <p:inputText id="cprCodigo" value="#{compraprodutoController.selected.cprCodigo}" title="#{bundle.CreateCompraprodutoTitle_cprCodigo}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprCodigo}"/>
                         <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprValorunitario}" for="cprValorunitario" />
                         <p:inputText id="cprValorunitario" value="#{compraprodutoController.selected.cprValorunitario}" title="#{bundle.CreateCompraprodutoTitle_cprValorunitario}" />
                         <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />

@@ -12,8 +12,6 @@
             <h:form id="UfCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ufController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUfLabel_ufCodigo}" for="ufCodigo" />
-                        <p:inputText id="ufCodigo" value="#{ufController.selected.ufCodigo}" title="#{bundle.CreateUfTitle_ufCodigo}" required="true" requiredMessage="#{bundle.CreateUfRequiredMessage_ufCodigo}"/>
                         <p:outputLabel value="#{bundle.CreateUfLabel_ufDescricao}" for="ufDescricao" />
                         <p:inputText id="ufDescricao" value="#{ufController.selected.ufDescricao}" title="#{bundle.CreateUfTitle_ufDescricao}" required="true" requiredMessage="#{bundle.CreateUfRequiredMessage_ufDescricao}"/>
                         <p:outputLabel value="#{bundle.CreateUfLabel_ufSigla}" for="ufSigla" />
