@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CompraprodutoCreateDlg" widgetVar="CompraprodutoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCompraprodutoTitle}">
+            <h:form id="CompraprodutoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{compraprodutoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprCodigo}" for="cprCodigo" />
+                        <p:inputText id="cprCodigo" value="#{compraprodutoController.selected.cprCodigo}" title="#{bundle.CreateCompraprodutoTitle_cprCodigo}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprCodigo}"/>
+                        <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprValorunitario}" for="cprValorunitario" />
+                        <p:inputText id="cprValorunitario" value="#{compraprodutoController.selected.cprValorunitario}" title="#{bundle.CreateCompraprodutoTitle_cprValorunitario}" />
+                        <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />
+                        <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
+                        <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_prdCodigo}" for="prdCodigo" />
+                        <p:selectOneMenu id="prdCodigo" value="#{compraprodutoController.selected.prdCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_prdCodigo}">
+                            <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"
+                                           var="prdCodigoItem"
+                                           itemValue="#{prdCodigoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{compraprodutoController.create}" value="#{bundle.Save}" update="display,:CompraprodutoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CompraprodutoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CompraprodutoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

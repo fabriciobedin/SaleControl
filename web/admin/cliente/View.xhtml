@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteViewDlg" widgetVar="ClienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteTitle}">
+            <h:form id="ClienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliCodigo}"/>
+                        <h:outputText value="#{clienteController.selected.cliCodigo}" title="#{bundle.ViewClienteTitle_cliCodigo}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliNome}"/>
+                        <h:outputText value="#{clienteController.selected.cliNome}" title="#{bundle.ViewClienteTitle_cliNome}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliCpf}"/>
+                        <h:outputText value="#{clienteController.selected.cliCpf}" title="#{bundle.ViewClienteTitle_cliCpf}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliTelefone}"/>
+                        <h:outputText value="#{clienteController.selected.cliTelefone}" title="#{bundle.ViewClienteTitle_cliTelefone}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliEmail}"/>
+                        <h:outputText value="#{clienteController.selected.cliEmail}" title="#{bundle.ViewClienteTitle_cliEmail}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliEndereco}"/>
+                        <h:outputText value="#{clienteController.selected.cliEndereco}" title="#{bundle.ViewClienteTitle_cliEndereco}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cliBloqueado}"/>
+                        <p:selectBooleanCheckbox value="#{clienteController.selected.cliBloqueado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_cidCodigo}"/>
+                        <h:outputText value="#{clienteController.selected.cidCodigo}" title="#{bundle.ViewClienteTitle_cidCodigo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

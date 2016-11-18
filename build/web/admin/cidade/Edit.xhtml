@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CidadeEditDlg" widgetVar="CidadeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCidadeTitle}">
+            <h:form id="CidadeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cidadeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCidadeLabel_cidCodigo}" for="cidCodigo" />
+                        <p:inputText id="cidCodigo" value="#{cidadeController.selected.cidCodigo}" title="#{bundle.EditCidadeTitle_cidCodigo}" required="true" requiredMessage="#{bundle.EditCidadeRequiredMessage_cidCodigo}"/>
+                        <p:outputLabel value="#{bundle.EditCidadeLabel_cidDescricao}" for="cidDescricao" />
+                        <p:inputText id="cidDescricao" value="#{cidadeController.selected.cidDescricao}" title="#{bundle.EditCidadeTitle_cidDescricao}" required="true" requiredMessage="#{bundle.EditCidadeRequiredMessage_cidDescricao}"/>
+                        <p:outputLabel value="#{bundle.EditCidadeLabel_ufCodigo}" for="ufCodigo" />
+                        <p:selectOneMenu id="ufCodigo" value="#{cidadeController.selected.ufCodigo}" required="true" requiredMessage="#{bundle.EditCidadeRequiredMessage_ufCodigo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{ufController.itemsAvailableSelectOne}"
+                                           var="ufCodigoItem"
+                                           itemValue="#{ufCodigoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cidadeController.update}" value="#{bundle.Save}" update="display,:CidadeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CidadeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CidadeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

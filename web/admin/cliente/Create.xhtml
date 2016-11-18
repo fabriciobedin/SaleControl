@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteCreateDlg" widgetVar="ClienteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateClienteTitle}">
+            <h:form id="ClienteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliCodigo}" for="cliCodigo" />
+                        <p:inputText id="cliCodigo" value="#{clienteController.selected.cliCodigo}" title="#{bundle.CreateClienteTitle_cliCodigo}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliCodigo}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliNome}" for="cliNome" />
+                        <p:inputText id="cliNome" value="#{clienteController.selected.cliNome}" title="#{bundle.CreateClienteTitle_cliNome}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliNome}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliCpf}" for="cliCpf" />
+                        <p:inputText id="cliCpf" value="#{clienteController.selected.cliCpf}" title="#{bundle.CreateClienteTitle_cliCpf}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliCpf}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliTelefone}" for="cliTelefone" />
+                        <p:inputText id="cliTelefone" value="#{clienteController.selected.cliTelefone}" title="#{bundle.CreateClienteTitle_cliTelefone}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliTelefone}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliEmail}" for="cliEmail" />
+                        <p:inputText id="cliEmail" value="#{clienteController.selected.cliEmail}" title="#{bundle.CreateClienteTitle_cliEmail}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliEmail}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliEndereco}" for="cliEndereco" />
+                        <p:inputText id="cliEndereco" value="#{clienteController.selected.cliEndereco}" title="#{bundle.CreateClienteTitle_cliEndereco}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliEndereco}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliBloqueado}" for="cliBloqueado" />
+                        <p:selectBooleanCheckbox id="cliBloqueado" value="#{clienteController.selected.cliBloqueado}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cliBloqueado}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cidCodigo}" for="cidCodigo" />
+                        <p:selectOneMenu id="cidCodigo" value="#{clienteController.selected.cidCodigo}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cidCodigo}">
+                            <f:selectItems value="#{cidadeController.itemsAvailableSelectOne}"
+                                           var="cidCodigoItem"
+                                           itemValue="#{cidCodigoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.create}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClienteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
