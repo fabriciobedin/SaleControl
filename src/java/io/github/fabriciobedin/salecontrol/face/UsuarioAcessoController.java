@@ -1,14 +1,18 @@
 package io.github.fabriciobedin.salecontrol.face;
 
-import io.github.fabriciobedin.salecontrol.bean.UsuarioFacade;
 import io.github.fabriciobedin.salecontrol.entity.Usuario;
 import io.github.fabriciobedin.salecontrol.face.util.JsfUtil;
+import io.github.fabriciobedin.salecontrol.face.util.JsfUtil.PersistAction;
+import io.github.fabriciobedin.salecontrol.bean.UsuarioFacade;
+
 import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -22,11 +26,12 @@ import javax.servlet.http.HttpSession;
 public class UsuarioAcessoController implements Serializable {
 
     @EJB
-    private UsuarioFacade ejbFacade;
+    private io.github.fabriciobedin.salecontrol.bean.UsuarioFacade ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
     private final FacesContext context = FacesContext.getCurrentInstance();
     private final HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+
 
     public UsuarioAcessoController() {
     }
@@ -54,8 +59,7 @@ public class UsuarioAcessoController implements Serializable {
         initializeEmbeddableKey();
         return selected;
     }
-
-
+    
     public Usuario getUsuario(java.lang.Integer id) {
         return getFacade().find(id);
     }
@@ -67,9 +71,8 @@ public class UsuarioAcessoController implements Serializable {
     public List<Usuario> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
-        
     
-    /**
+     /**
      * Método utilizado para inicializar métodos ao instanciar a classe
      */
     @PostConstruct
@@ -86,8 +89,6 @@ public class UsuarioAcessoController implements Serializable {
         initializeEmbeddableKey();
     
     }
-        
-    
     
     public String autenticarUsuario(){
         //busca o usuario na base de dados
@@ -124,17 +125,17 @@ public class UsuarioAcessoController implements Serializable {
         return "/login";
     }
     
-    
+
     @FacesConverter(forClass = Usuario.class)
-    public static class UsuarioControllerConverter implements Converter {
+    public static class UsuarioAcessoControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            UsuarioAcessoController controller = (UsuarioAcessoController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "usuarioAcessoController");
+            UsuarioController controller = (UsuarioController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "usuarioController");
             return controller.getUsuario(getKey(value));
         }
 
