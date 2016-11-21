@@ -53,7 +53,7 @@ public class Uf implements Serializable {
     @Size(min = 1, max = 2)
     @Column(name = "uf_sigla")
     private String ufSigla;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ufCodigo")
+    @OneToMany(mappedBy = "ufCodigo")
     private Collection<Cidade> cidadeCollection;
 
     public Uf() {
@@ -124,7 +124,7 @@ public class Uf implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Uf[ ufCodigo=" + ufCodigo + " ]";
+        return ufDescricao + " - " + ufSigla;
     }
     
 }

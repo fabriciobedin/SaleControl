@@ -75,7 +75,7 @@ public class Produto implements Serializable {
     @JoinColumn(name = "frn_codigo", referencedColumnName = "frn_codigo")
     @ManyToOne(optional = false)
     private Fornecedor frnCodigo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "prdCodigo")
+    @OneToMany(mappedBy = "prdCodigo")
     private Collection<Compraproduto> compraprodutoCollection;
 
     public Produto() {
@@ -181,7 +181,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Produto[ prdCodigo=" + prdCodigo + " ]";
+        return prdDescricao + " - " + prdTamanho + " - " + prdCodigo;
     }
     
 }

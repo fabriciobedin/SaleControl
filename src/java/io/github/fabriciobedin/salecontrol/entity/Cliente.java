@@ -81,7 +81,7 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "cid_codigo", referencedColumnName = "cid_codigo")
     @ManyToOne(optional = false)
     private Cidade cidCodigo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliCodigo")
+    @OneToMany(mappedBy = "cliCodigo")
     private Collection<Compra> compraCollection;
 
     public Cliente() {
@@ -196,7 +196,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Cliente[ cliCodigo=" + cliCodigo + " ]";
+        return cliNome + " - " + cliCpf;
     }
     
 }

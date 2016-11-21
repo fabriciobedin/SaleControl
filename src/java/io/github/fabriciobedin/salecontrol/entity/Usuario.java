@@ -78,7 +78,7 @@ public class Usuario implements Serializable {
     @NotNull
     @Column(name = "usr_adm")
     private boolean usrAdm;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usrCodigo")
+    @OneToMany(mappedBy = "usrCodigo")
     private Collection<Compra> compraCollection;
     @JoinColumn(name = "cid_codigo", referencedColumnName = "cid_codigo")
     @ManyToOne(optional = false)
@@ -196,7 +196,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Usuario[ usrCodigo=" + usrCodigo + " ]";
+        return usrNome + " - " + usrCodigo;
     }
     
 }

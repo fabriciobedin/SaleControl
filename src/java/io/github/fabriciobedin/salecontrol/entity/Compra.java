@@ -147,7 +147,7 @@ public class Compra implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Compra[ cmpCodigo=" + cmpCodigo + " ]";
+        return ""+cmpCodigo;
     }
     
 }

@@ -133,7 +133,7 @@ public class Compraproduto implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Compraproduto[ cprCodigo=" + cprCodigo + " ]";
+        return ""+cprCodigo;
     }
     
 }

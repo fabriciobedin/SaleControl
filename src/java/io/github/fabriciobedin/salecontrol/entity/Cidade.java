@@ -49,14 +49,14 @@ public class Cidade implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "cid_descricao")
     private String cidDescricao;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cidCodigo")
+    @OneToMany(mappedBy = "cidCodigo")
     private Collection<Cliente> clienteCollection;
     @JoinColumn(name = "uf_codigo", referencedColumnName = "uf_codigo")
     @ManyToOne(optional = false)
     private Uf ufCodigo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cidCodigo")
+    @OneToMany(mappedBy = "cidCodigo")
     private Collection<Usuario> usuarioCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cidCodigo")
+    @OneToMany(mappedBy = "cidCodigo")
     private Collection<Fornecedor> fornecedorCollection;
 
     public Cidade() {
@@ -144,7 +144,7 @@ public class Cidade implements Serializable {
 
     @Override
     public String toString() {
-        return "io.github.fabriciobedin.salecontrol.entity.Cidade[ cidCodigo=" + cidCodigo + " ]";
+        return cidDescricao;
     }
     
 }
