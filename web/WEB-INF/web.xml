@@ -10,7 +10,7 @@
     </context-param>
     <filter>
         <filter-name>FiltroAdministrativo</filter-name>
-        <filter-class>br.com.admin.FiltroAdministrativo</filter-class>
+        <filter-class>io.github.fabriciobedin.salecontrol.admin</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>FiltroAdministrativo</filter-name>
