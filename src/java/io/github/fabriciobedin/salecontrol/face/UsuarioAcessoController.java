@@ -2,17 +2,14 @@ package io.github.fabriciobedin.salecontrol.face;
 
 import io.github.fabriciobedin.salecontrol.entity.Usuario;
 import io.github.fabriciobedin.salecontrol.face.util.JsfUtil;
-import io.github.fabriciobedin.salecontrol.face.util.JsfUtil.PersistAction;
 import io.github.fabriciobedin.salecontrol.bean.UsuarioFacade;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -31,7 +28,6 @@ public class UsuarioAcessoController implements Serializable {
     private Usuario selected;
     private final FacesContext context = FacesContext.getCurrentInstance();
     private final HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-
 
     public UsuarioAcessoController() {
     }

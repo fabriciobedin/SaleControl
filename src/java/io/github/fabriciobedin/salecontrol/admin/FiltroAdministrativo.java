@@ -15,7 +15,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,8 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author fabricio
  */
-@WebFilter(filterName = "FriltroAdministrativo", urlPatterns = {"/*"})
-public class FriltroAdministrativo implements Filter {
+public class FiltroAdministrativo implements Filter {
     
     private static final boolean debug = true;
 
@@ -34,13 +32,13 @@ public class FriltroAdministrativo implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
     
-    public FriltroAdministrativo() {
+    public FiltroAdministrativo() {
     }    
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("FriltroAdministrativo:DoBeforeProcessing");
+            log("FiltroAdministrativo:DoBeforeProcessing");
         }
 
         // Write code here to process the request and/or response before
@@ -68,7 +66,7 @@ public class FriltroAdministrativo implements Filter {
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("FriltroAdministrativo:DoAfterProcessing");
+            log("FiltroAdministrativo:DoAfterProcessing");
         }
 
         // Write code here to process the request and/or response after
@@ -148,7 +146,7 @@ public class FriltroAdministrativo implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {                
-                log("FriltroAdministrativo:Initializing filter");
+                log("FiltroAdministrativo:Initializing filter");
             }
         }
     }
@@ -159,9 +157,9 @@ public class FriltroAdministrativo implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("FriltroAdministrativo()");
+            return ("FiltroAdministrativo()");
         }
-        StringBuffer sb = new StringBuffer("FriltroAdministrativo(");
+        StringBuffer sb = new StringBuffer("FiltroAdministrativo(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
