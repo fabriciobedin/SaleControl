@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Compra Produto</title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <!-- Ao abrir a pagina, carrega primeiro esse evento abaixo !-->
+        <f:event listener="#{compraController.prepareCreateGeral()}" type="preRenderView" />
+        <f:event listener="#{compraprodutoController.prepareCreate()}" type="preRenderView" />
+    </h:head>
+    <h:body>
+
+        <h:form id="frmCompraProduto">
+            <p:growl id="growl" showDetail="true" />
+
+            <p:tabView>
+                <p:tab title="INCLUIR">
+                    <p:fieldset legend="Compra" style="margin-bottom:20px">
+                        <p:outputPanel id="oppCompra">
+                            <h:panelGrid columns="2">
+                                <p:outputLabel value="#{bundle.CreateCompraLabel_usrCodigo}" for="usrCodigo" />
+                                <p:selectOneMenu id="usrCodigo" value="#{compraController.selected.usrCodigo}" required="true" requiredMessage="#{bundle.EditCompraRequiredMessage_usrCodigo}">
+                                    <f:selectItem itemValue="" itemLabel="Selecione um Usuario" noSelectionOption="true" />
+                                    <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                                   var="usrCodigoItem"
+                                                   itemValue="#{usrCodigoItem}"/>
+                                </p:selectOneMenu>
+
+                            </h:panelGrid>
+                            <p:commandButton actionListener="#{compraController.create()}"
+                                             value="Criar Compra"
+                                             partialSubmit="true"
+                                             process="oppCompra"
+                                             update=":frmCompraProduto:growl, oppCompra, oppCompraProduto"/>
+                            <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
+                                             value="Novo" update=":frmCompraProduto:growl, oppCompra"/>
+                        </p:outputPanel>
+                    </p:fieldset>
+
+                    <p:fieldset legend="Item Compra" style="margin-bottom:20px">
+                        <p:outputPanel id="oppCompraProduto">
+                            <h:panelGrid columns="4">
+                                <p:outputLabel value="ID Compra" />
+                                <p:inputText value="#{compraController.compraCodigo}" disabled="true" />
+
+                                <p:outputLabel value="Usuario" />
+                                <p:inputText value="#{compraController.usuarioNome}" disabled="true" />
+
+                                <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_prdCodigo}" for="prdCodigo" />
+                                
+                                <p:selectOneMenu id="prdCodigo" value="#{compraprodutoController.selected.prdCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_prdCodigo}">
+                                    <f:selectItem itemValue="" itemLabel="Selecione um Produto" noSelectionOption="true" />
+                                    <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"
+                                                   var="prdCodigoItem"
+                                                   itemValue="#{prdCodigoItem}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />
+                                <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
+                            </h:panelGrid>
+                            
+                            <p:commandButton actionListener="#{compraprodutoController.createCompraProduto(compraController.compraCodigo.intValue())}"
+                                             value="Incluir Produto" 
+                                             partialSubmit="true"
+                                             process="oppCompraProduto"
+                                             update=":frmCompraProduto:growl, oppCompraProduto" />
+                        </p:outputPanel>
+                    </p:fieldset>
+
+                </p:tab>
+                <p:tab title="HISTÓRICO">
+
+                </p:tab>                
+            </p:tabView>           
+
+        </h:form>
+
+    </h:body>
+</html>
+
