@@ -20,8 +20,6 @@
                         <p:inputText id="prdValorUnitario" value="#{produtoController.selected.prdValorUnitario}" title="#{bundle.CreateProdutoTitle_prdValorUnitario}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_prdValorUnitario}"/>
                         <p:outputLabel value="#{bundle.CreateProdutoLabel_prdQuantidadeEstoque}" for="prdQuantidadeEstoque" />
                         <p:inputText id="prdQuantidadeEstoque" value="#{produtoController.selected.prdQuantidadeEstoque}" title="#{bundle.CreateProdutoTitle_prdQuantidadeEstoque}" required="true" requiredMessage="#{bundle.CreateProdutoRequiredMessage_prdQuantidadeEstoque}"/>
-                        <p:outputLabel value="#{bundle.CreateProdutoLabel_prdAtivo}" for="prdAtivo" />
-                        <p:selectBooleanCheckbox id="prdAtivo" value="#{produtoController.selected.prdAtivo}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_prdAtivo}"/>
                         <p:outputLabel value="#{bundle.CreateProdutoLabel_frnCodigo}" for="frnCodigo" />
                         <p:selectOneMenu id="frnCodigo" value="#{produtoController.selected.frnCodigo}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_frnCodigo}">
                             <f:selectItems value="#{fornecedorController.itemsAvailableSelectOne}"

@@ -22,8 +22,6 @@
                         <p:inputText id="cliEmail" value="#{clienteController.selected.cliEmail}" title="#{bundle.CreateClienteTitle_cliEmail}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliEmail}"/>
                         <p:outputLabel value="#{bundle.CreateClienteLabel_cliEndereco}" for="cliEndereco" />
                         <p:inputText id="cliEndereco" value="#{clienteController.selected.cliEndereco}" title="#{bundle.CreateClienteTitle_cliEndereco}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_cliEndereco}"/>
-                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliBloqueado}" for="cliBloqueado" />
-                        <p:selectBooleanCheckbox id="cliBloqueado" value="#{clienteController.selected.cliBloqueado}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cliBloqueado}"/>
                         <p:outputLabel value="#{bundle.CreateClienteLabel_cidCodigo}" for="cidCodigo" />
                         <p:selectOneMenu id="cidCodigo" value="#{clienteController.selected.cidCodigo}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_cidCodigo}">
                             <f:selectItems value="#{cidadeController.itemsAvailableSelectOne}"

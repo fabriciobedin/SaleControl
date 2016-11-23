@@ -8,6 +8,10 @@
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
         <param-value>client</param-value>
     </context-param>
+    <context-param>  
+        <param-name>primefaces.THEME</param-name>  
+        <param-value>blitzer</param-value>  
+    </context-param>
     <filter>
         <filter-name>FiltroAdministrativo</filter-name>
         <filter-class>io.github.fabriciobedin.salecontrol.admin.FiltroAdministrativo</filter-class>
@@ -33,4 +37,5 @@
     <welcome-file-list>
         <welcome-file>faces/login.xhtml</welcome-file>
     </welcome-file-list>
+     
 </web-app>

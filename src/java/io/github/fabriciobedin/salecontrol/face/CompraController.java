@@ -56,6 +56,12 @@ public class CompraController implements Serializable {
     public Compra prepareCreate() {
         selected = new Compra();
         initializeEmbeddableKey();
+        return selected;
+    }
+    
+    public Compra prepareCreateGeral() {
+        selected = new Compra();
+        initializeEmbeddableKey();
         setCompraCodigo(null);
         setUsuarioNome(null);
         return selected;

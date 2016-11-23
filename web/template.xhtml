@@ -9,6 +9,7 @@
         <title><ui:insert name="title">Default Title</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
+        <ui:insert name="event"/>
     </h:head>
 
     <h:body>
@@ -18,24 +19,29 @@
         <p:layout fullPage="true">
             <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
                 <h:form id="menuForm">
+                
                     <p:menubar>
-                        <p:menuitem value="SAIR" action="#{usuarioAcessoController.logout()}"/>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
+                        <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-home">
                             <p:menuitem value="Cidade" outcome="/admin/cidade/List.xhtml" />
                             <p:menuitem value="Cliente" outcome="/admin/cliente/List.xhtml" />
                             <p:menuitem value="Compra" outcome="/admin/compra/List.xhtml" />
                             <p:menuitem value="Compraproduto" outcome="/admin/compraproduto/List.xhtml" />
-                            <p:menuitem value="Fornecedor" outcome="/admin/fornecedor/List.xhtml" />
-                            <p:menuitem value="Produto" outcome="/admin/produto/List.xhtml" />
                             <p:menuitem value="Uf" outcome="/admin/uf/List.xhtml" />
                             <p:menuitem value="Usuario" outcome="/admin/usuario/List.xhtml" />
                         </p:submenu>
-                        <p:submenu label="Operacional">
-                            <p:menuitem value="Compra Produto" outcome="/admin/operacional/Compra-Produto.xhtml" />
-                        </p:submenu>
                         
+                        <p:menuitem value="• Produtos •" outcome="/admin/produto/List.xhtml" />
+                        <p:menuitem value="• Clientes •" outcome="/admin/cliente/List.xhtml" />
+                        <p:menuitem value="• Fornecedores •" outcome="/admin/fornecedor/List.xhtml" />
+                        <p:menuitem value="• Nova Venda •" outcome="/admin/operacional/Compra-Produto.xhtml" />
+                        <p:menuitem value="• Relatórios •" outcome="/admin/operacional/Compra-Produto.xhtml" />
+                        <p:menuitem value="• Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left"/>
+                        <p:menuitem value=" Bem Vindo #{usuarioController.selected.usrNome}" outcome="/admin/operacional/Compra-Produto.xhtml" />
+                        
+                       
                     </p:menubar>
+                           
+
                 </h:form>
             </p:layoutUnit>
 

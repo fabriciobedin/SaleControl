@@ -28,8 +28,6 @@
                         <p:inputText id="frnSite" value="#{fornecedorController.selected.frnSite}" title="#{bundle.CreateFornecedorTitle_frnSite}" required="true" requiredMessage="#{bundle.CreateFornecedorRequiredMessage_frnSite}"/>
                         <p:outputLabel value="#{bundle.CreateFornecedorLabel_frnEndereco}" for="frnEndereco" />
                         <p:inputText id="frnEndereco" value="#{fornecedorController.selected.frnEndereco}" title="#{bundle.CreateFornecedorTitle_frnEndereco}" required="true" requiredMessage="#{bundle.CreateFornecedorRequiredMessage_frnEndereco}"/>
-                        <p:outputLabel value="#{bundle.CreateFornecedorLabel_frnBloqueado}" for="frnBloqueado" />
-                        <p:selectBooleanCheckbox id="frnBloqueado" value="#{fornecedorController.selected.frnBloqueado}" required="true" requiredMessage="#{bundle.EditFornecedorRequiredMessage_frnBloqueado}"/>
                         <p:outputLabel value="#{bundle.CreateFornecedorLabel_cidCodigo}" for="cidCodigo" />
                         <p:selectOneMenu id="cidCodigo" value="#{fornecedorController.selected.cidCodigo}" required="true" requiredMessage="#{bundle.EditFornecedorRequiredMessage_cidCodigo}">
                             <f:selectItems value="#{cidadeController.itemsAvailableSelectOne}"
