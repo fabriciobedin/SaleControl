@@ -52,7 +52,7 @@ public class Compraproduto implements Serializable {
     @NotNull
     @Column(name = "cpr_quantidade")
     private int cprQuantidade;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cprCodigo")
+    @OneToMany(mappedBy = "cprCodigo")
     private Collection<Compra> compraCollection;
     @JoinColumn(name = "prd_codigo", referencedColumnName = "prd_codigo")
     @ManyToOne(optional = false)
