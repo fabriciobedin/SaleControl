@@ -3,13 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <title><ui:insert name="title">Default Title</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
-        <ui:insert name="event"/>
+        <f:event listener="#{compraController.prepareCreateGeral()}" type="preRenderView" />
+        <f:event listener="#{compraprodutoController.prepareCreate()}" type="preRenderView" />
     </h:head>
 
     <h:body>
@@ -21,22 +23,20 @@
                 <h:form id="menuForm">
                 
                     <p:menubar>
-                        <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-home">
+                        <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-plus">
                             <p:menuitem value="Cidade" outcome="/admin/cidade/List.xhtml" />
                             <p:menuitem value="Cliente" outcome="/admin/cliente/List.xhtml" />
-                            <p:menuitem value="Compra" outcome="/admin/compra/List.xhtml" />
-                            <p:menuitem value="Compraproduto" outcome="/admin/compraproduto/List.xhtml" />
                             <p:menuitem value="Uf" outcome="/admin/uf/List.xhtml" />
                             <p:menuitem value="Usuario" outcome="/admin/usuario/List.xhtml" />
                         </p:submenu>
                         
-                        <p:menuitem value="• Produtos •" outcome="/admin/produto/List.xhtml" />
-                        <p:menuitem value="• Clientes •" outcome="/admin/cliente/List.xhtml" />
-                        <p:menuitem value="• Fornecedores •" outcome="/admin/fornecedor/List.xhtml" />
-                        <p:menuitem value="• Nova Venda •" outcome="/admin/operacional/Compra-Produto.xhtml" />
-                        <p:menuitem value="• Relatórios •" outcome="/admin/operacional/Compra-Produto.xhtml" />
-                        <p:menuitem value="• Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left"/>
-                        <p:menuitem value=" Bem Vindo #{usuarioController.selected.usrNome}" outcome="/admin/operacional/Compra-Produto.xhtml" />
+                        <p:menuitem value="Produtos" outcome="/admin/produto/List.xhtml" icon="ui-icon-search" />
+                        <p:menuitem value="Clientes" outcome="/admin/cliente/List.xhtml" icon="ui-icon-person"/>
+                        <p:menuitem value="Fornecedores" outcome="/admin/fornecedor/List.xhtml" icon="ui-icon-suitcase" />
+                        <p:menuitem value="Nova Venda" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-cart"/>
+                        <p:menuitem value="Relatórios" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-clipboard"/>
+                        <p:menuitem value="Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left" icon="ui-icon-extlink"/>
+                        
                         
                        
                     </p:menubar>

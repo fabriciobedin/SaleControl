@@ -85,14 +85,8 @@
                                 <h:outputText value="#{produto.descricao}" />
                             </p:column>
 
-                            <p:column headerText="Valor">
-                                <h:outputText value="#{produto.prdValorUnitario}"/>
-                            </p:column>
-                            <p:column headerText="Quantidade">
-                                <h:outputText value="#{compraprodutoController.selected.cprQuantidade}"/>
-                            </p:column>
                             <p:column headerText="Data">
-                                <h:outputText value="#{compraController.selected.cmpDatahora}">
+                                <h:outputText value="#{produto.data}">
                                     <f:convertDateTime pattern="dd/MM/yyyy"/>
                                 </h:outputText>
                             </p:column>
