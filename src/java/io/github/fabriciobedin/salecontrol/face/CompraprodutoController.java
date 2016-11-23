@@ -53,6 +53,7 @@ public class CompraprodutoController implements Serializable {
         selected = new Compraproduto();
         initializeEmbeddableKey();
         selected.setCprQuantidade(1);
+       
         return selected;
     }
 

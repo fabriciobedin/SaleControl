@@ -5,6 +5,7 @@ import io.github.fabriciobedin.salecontrol.face.util.JsfUtil;
 import io.github.fabriciobedin.salecontrol.face.util.JsfUtil.PersistAction;
 import io.github.fabriciobedin.salecontrol.bean.CompraFacade;
 import io.github.fabriciobedin.salecontrol.face.util.Util;
+import io.github.fabriciobedin.salecontrol.face.util.UtilSession;
 
 import java.io.Serializable;
 import java.util.List;
@@ -31,6 +32,7 @@ public class CompraController implements Serializable {
     private Integer compraCodigo;
     private String usuarioNome;
     private Util util = new Util();
+    private UtilSession utilSession = new UtilSession();
 
     public CompraController() {
     }
@@ -64,6 +66,7 @@ public class CompraController implements Serializable {
         initializeEmbeddableKey();
         setCompraCodigo(null);
         setUsuarioNome(null);
+        selected.setUsrCodigo(utilSession.getUsuarioLogado());
         return selected;
     }
 

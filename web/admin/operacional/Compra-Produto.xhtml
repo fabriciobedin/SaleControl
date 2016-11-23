@@ -8,118 +8,115 @@
 
     <ui:composition template="/template.xhtml">
 
-
         <ui:define name="title">
             <h:outputText value="Nova Compra"></h:outputText>
         </ui:define>
-
         <ui:define name="body">
             <h:form id="frmCompraProduto">
                 <p:growl id="growl" showDetail="true" />
 
-                <p:tabView>   
-                    <p:tab title="Nova Venda">
-                        <p:fieldset legend="Informar o Cliente" style="margin-bottom:20px">
-                            <p:outputPanel id="oppVenda">
-                                <h:panelGrid columns="4">
+                <p:fieldset  style="margin-bottom:20px">
+                    <p:outputPanel id="oppVenda">
+                        <h:panelGrid columns="5">
 
-                                    <p:outputLabel value="#{bundle.CreateCompraLabel_usrCodigo}" for="usrCodigo" />
-                                    <p:selectOneMenu id="usrCodigo" value="#{compraController.selected.usrCodigo}" required="true" requiredMessage="#{bundle.EditCompraRequiredMessage_usrCodigo}">
-                                        <f:selectItem itemValue="" itemLabel="Selecione um Usuario" noSelectionOption="true" />
-                                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
-                                                       var="usrCodigoItem"
-                                                       itemValue="#{usrCodigoItem}"/>
-                                    </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateCompraLabel_usrCodigo}" for="usrCodigo" />
+                            <p:selectOneMenu id="usrCodigo" value="#{compraController.selected.usrCodigo}" required="true" requiredMessage="#{bundle.EditCompraRequiredMessage_usrCodigo}">
+                                <f:selectItem itemValue="" itemLabel="Selecione um Usuario" noSelectionOption="true" />
+                                <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                               var="usrCodigoItem"
+                                               itemValue="#{usrCodigoItem}"/>
+                            </p:selectOneMenu>
 
-                                    <p:outputLabel value="Cliente" for="cliCodigo" />
-                                    <p:selectOneMenu id="cliCodigo" value="#{compraController.selected.cliCodigo}" required="true" requiredMessage="O campo cliente é necessário!">
-                                        <f:selectItem itemValue="" itemLabel="Selecione um Cliente" noSelectionOption="true" />
-                                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
-                                                       var="cliCodigoItem"
-                                                       itemValue="#{cliCodigoItem}"/>
-                                    </p:selectOneMenu>
+                            <p:outputLabel value="Cliente" for="cliCodigo" />
+                            <p:selectOneMenu id="cliCodigo" value="#{compraController.selected.cliCodigo}" required="true" requiredMessage="O campo cliente é necessário!">
+                                <f:selectItem itemValue="" itemLabel="Selecione um Cliente" noSelectionOption="true" />
+                                <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                               var="cliCodigoItem"
+                                               itemValue="#{cliCodigoItem}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:commandButton actionListener="#{compraController.create()}"
+                                         value="Iniciar Venda"
+                                         partialSubmit="true"
+                                         process="oppVenda"
+                                         update=":frmCompraProduto:growl, oppVenda"/>
 
-                                </h:panelGrid>
-                                <p:commandButton actionListener="#{compraController.create()}"
-                                                 value="Iniciar Venda"
-                                                 partialSubmit="true"
-                                                 process="oppVenda"
-                                                 update=":frmCompraProduto:growl, oppVenda"/>
-                            </p:outputPanel>
+                        </h:panelGrid>
+                        
+                    </p:outputPanel>
 
-                        </p:fieldset>
-                        <p:fieldset legend="Adicionar Produtos" style="margin-bottom:20px">
-                            <p:outputPanel id="oppVendaProduto">
-                                <h:panelGrid columns="4">
+                </p:fieldset>
+                <p:fieldset style="margin-bottom:20px">
+                    <p:outputPanel id="oppVendaProduto">
+                        <h:panelGrid columns="5">
 
-                                    <p:outputLabel value="Produto" for="prdCodigo" />
-                                    <p:selectOneMenu id="prdCodigo"  value="#{compraprodutoController.selected.prdCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_prdCodigo}">
-                                        <f:selectItem itemValue="" itemLabel="Selecione um Produto" noSelectionOption="true" />
-                                        <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"
-                                                       var="prdCodigoItem"
-                                                       itemValue="#{prdCodigoItem}"/>
-                                    </p:selectOneMenu>
-                                    <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />
-                                    <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
+                            <p:outputLabel value="Produto" for="prdCodigo" />
+                            <p:selectOneMenu id="prdCodigo"  value="#{compraprodutoController.selected.prdCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_prdCodigo}">
+                                <f:selectItem itemValue="" itemLabel="Selecione um Produto" noSelectionOption="true" />
+                                <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"
+                                               var="prdCodigoItem"
+                                               itemValue="#{prdCodigoItem}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />
+                            <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
 
-                                </h:panelGrid>
-                                <p:commandButton actionListener="#{compraprodutoController.create()}"
-                                                 value="Adicionar Produto"
-                                                 partialSubmit="true"
-                                                 process="oppVendaProduto"
-                                                 update=":frmCompraProduto:growl, oppVendaProduto"/>
+                            <p:commandButton actionListener="#{compraprodutoController.create()}"
+                                         value="Adicionar Produto"
+                                         partialSubmit="true"
+                                         process="oppVendaProduto"
+                                         update=":frmCompraProduto:growl, oppVendaProduto"/>
+                        </h:panelGrid>
+                        
 
-                            </p:outputPanel>
+                    </p:outputPanel>
 
-                        </p:fieldset>
-                        <p:fieldset legend="Produtos Adicionados" style="margin-bottom:20px">
-                            <p:dataTable id="dtProdutos" var="produto" value="#{produtoMB.produtos}"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
+                </p:fieldset>
+                <p:fieldset style="margin-bottom:20px">
+                    <p:dataTable id="dtProdutos" var="produto" value="#{produtoMB.produtos}"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
 
-                                <p:column headerText="Codigo">
-                                    <h:outputText value="#{produto.codigo}" />
-                                </p:column>
-                                <p:column headerText="Descrição">
-                                    <h:outputText value="#{produto.descricao}" />
-                                </p:column>
+                        <p:column headerText="Codigo">
+                            <h:outputText value="#{produto.codigo}" />
+                        </p:column>
+                        <p:column headerText="Descrição">
+                            <h:outputText value="#{produto.descricao}" />
+                        </p:column>
 
-                                <p:column headerText="Valor">
-                                    <h:outputText value="#{produto.prdValorUnitario}"/>
-                                </p:column>
-                                <p:column headerText="Quantidade">
-                                    <h:outputText value="#{compraprodutoController.selected.cprQuantidade}"/>
-                                </p:column>
-                                <p:column headerText="Data">
-                                    <h:outputText value="#{compraController.selected.cmpDatahora}">
-                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
-                                    </h:outputText>
-                                </p:column>
+                        <p:column headerText="Valor">
+                            <h:outputText value="#{produto.prdValorUnitario}"/>
+                        </p:column>
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{compraprodutoController.selected.cprQuantidade}"/>
+                        </p:column>
+                        <p:column headerText="Data">
+                            <h:outputText value="#{compraController.selected.cmpDatahora}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                        </p:column>
 
-                            </p:dataTable>
-                        </p:fieldset>
-                        <p:fieldset legend="Finalizar Venda" style="margin-bottom:20px">
-                            <h:panelGrid columns="5">
-                                <p:outputLabel value="Quantidade de Itens" for="cprQuantidadeItens" />
-                                <p:inputText id="cprQuantidadeItens" value="#{compraController.selected.cprCodigo}" title="Quantidade de Ítens"/>
+                    </p:dataTable>
+                </p:fieldset>
+                <p:fieldset  style="margin-bottom:20px">
+                    <h:panelGrid columns="5">
+                        <p:outputLabel value="Quantidade de Itens" for="cprQuantidadeItens" />
+                        <p:inputText id="cprQuantidadeItens" value="#{compraController.selected.cprCodigo}" title="Quantidade de Ítens"/>
 
-                                <p:outputLabel value="Valor Total" for="cprValorTotal" />
-                                <p:inputText id="cprValorTotal" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}"/>
+                        <p:outputLabel value="Valor Total" for="cprValorTotal" />
+                        <p:inputText id="cprValorTotal" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}"/>
 
 
-                            </h:panelGrid>
-                            <p:outputPanel id="oppFinalizarVendaProduto">
-                                <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
-                                                 value="Finalizar Venda"
-                                                 partialSubmit="true"
-                                                 process="oppFinalizarVendaProduto"
-                                                 update=":frmCompraProduto:growl, oppFinalizarVendaProduto, oppVenda, dtProdutos"/>
-                            </p:outputPanel>
-                        </p:fieldset>
-                    </p:tab>
-                    <p:tab title="HISTÓRICO"></p:tab>                
-                </p:tabView>           
+                    </h:panelGrid>
+                    <p:outputPanel id="oppFinalizarVendaProduto">
+                        <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
+                                         value="Finalizar Venda"
+                                         partialSubmit="true"
+                                         process="oppFinalizarVendaProduto"
+                                         update=":frmCompraProduto:growl, oppFinalizarVendaProduto, oppVenda, dtProdutos"/>
+                    </p:outputPanel>
+                </p:fieldset>
+
             </h:form>
         </ui:define>
     </ui:composition>
