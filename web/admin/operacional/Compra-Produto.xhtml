@@ -9,15 +9,15 @@
     <ui:composition template="/template.xhtml">
 
         <ui:define name="title">
-            <h:outputText value="Nova Compra"></h:outputText>
+            <h:outputText value="Nova Venda"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form id="frmCompraProduto">
+            <h:form id="frmCompraProduto" style="position: absolute; left: 50%; top: 2%; width: 750px; margin-left:-375px">
                 <p:growl id="growl" showDetail="true" />
 
                 <p:fieldset  style="margin-bottom:20px">
                     <p:outputPanel id="oppVenda">
-                        <h:panelGrid columns="5">
+                        <h:panelGrid columns="4">
 
                             <p:outputLabel value="#{bundle.CreateCompraLabel_usrCodigo}" for="usrCodigo" />
                             <p:selectOneMenu id="usrCodigo" value="#{compraController.selected.usrCodigo}" required="true" requiredMessage="#{bundle.EditCompraRequiredMessage_usrCodigo}">
@@ -35,20 +35,22 @@
                                                itemValue="#{cliCodigoItem}"/>
                             </p:selectOneMenu>
 
-                            <p:commandButton actionListener="#{compraController.create()}"
+                            
+
+                        </h:panelGrid>
+                        <p:commandButton actionListener="#{compraController.create()}"
                                              value="Iniciar Venda"
                                              partialSubmit="true"
                                              process="oppVenda"
+                                             style="width: 100%"
                                              update=":frmCompraProduto:growl, oppVenda"/>
-
-                        </h:panelGrid>
 
                     </p:outputPanel>
 
                 </p:fieldset>
                 <p:fieldset style="margin-bottom:20px">
                     <p:outputPanel id="oppVendaProduto">
-                        <h:panelGrid columns="5">
+                        <h:panelGrid columns="4">
 
                             <p:outputLabel value="Produto" for="prdCodigo" />
                             <p:selectOneMenu id="prdCodigo"  value="#{compraprodutoController.selected.prdCodigo}" required="true" requiredMessage="#{bundle.EditCompraprodutoRequiredMessage_prdCodigo}">
@@ -60,12 +62,14 @@
                             <p:outputLabel value="#{bundle.CreateCompraprodutoLabel_cprQuantidade}" for="cprQuantidade" />
                             <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
 
-                            <p:commandButton actionListener="#{compraprodutoController.create()}"
+                            
+                        </h:panelGrid>
+                        <p:commandButton actionListener="#{compraprodutoController.create()}"
                                              value="Adicionar Produto"
                                              partialSubmit="true"
                                              process="oppVendaProduto"
+                                             style="width: 100%"
                                              update=":frmCompraProduto:growl, oppVendaProduto"/>
-                        </h:panelGrid>
 
 
                     </p:outputPanel>
@@ -100,7 +104,7 @@
                 </p:fieldset>
                 <p:fieldset  style="margin-bottom:20px">
                     <p:outputPanel id="oppFinalizarVendaProduto">
-                        <h:panelGrid columns="5">
+                        <h:panelGrid columns="4">
 
                             <p:outputLabel value="Quantidade de Itens" for="cprQuantidadeItens" />
                             <p:inputText id="cprQuantidadeItens" value="#{compraController.selected.cprCodigo}" title="Quantidade de Ítens"/>
@@ -108,13 +112,15 @@
                             <p:outputLabel value="Valor Total" for="cprValorTotal" />
                             <p:inputText id="cprValorTotal" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}"/>
 
-                            <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
+                            </h:panelGrid>
+                        <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
                                              value="Finalizar Venda"
                                              partialSubmit="true"
                                              process="oppFinalizarVendaProduto"
+                                             style="width: 100%"
                                              update=":frmCompraProduto:growl, oppFinalizarVendaProduto, oppVenda, dtProdutos"/>
 
-                        </h:panelGrid>
+                     
 
                     </p:outputPanel>
 

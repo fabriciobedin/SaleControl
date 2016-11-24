@@ -14,8 +14,9 @@
                              action="#{usuarioAcessoController.prepareAutenticarUsuario()}"
                              />
             <p:growl id="growl"/>
-            <p:panel id="pnlUsuario">
-                <h:panelGrid columns="2">
+            <h:graphicImage style="position: absolute; left: 50%; top: 13%; margin-left:-100px; width: 200px;" value="/resources/img/logo.png" />
+            <p:panel id="pnlUsuario" style="position: absolute; left: 50%; top: 50%; margin-left:-105px; margin-top:-85px;">
+                <h:panelGrid columns="2" >
                     <p:outputLabel value="#{bundle.CreateUsuarioLabel_usrLogin}" for="usrLogin" />
                     <p:inputText id="usrLogin" value="#{usuarioAcessoController.selected.usrLogin}"
                              title="#{bundle.CreateUsuarioTitle_usrLogin}" required="true" 
@@ -24,12 +25,15 @@
                     <p:password id="usrSenha" value="#{usuarioAcessoController.selected.usrSenha}" 
                              title="#{bundle.CreateUsuarioTitle_usrSenha}" required="true" 
                              requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usrSenha}"/>
+                    
 
                 </h:panelGrid>
+                <p:commandButton action="#{usuarioAcessoController.autenticarUsuario()}"
+                             value="Acessar" update="growl" style="width: 100%"/>
+                
                 
             </p:panel>
-            <p:commandButton action="#{usuarioAcessoController.autenticarUsuario()}"
-                             value="Acessar" update="growl"/>
+            
         </h:form>
     </h:body>
 </html>
