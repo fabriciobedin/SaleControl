@@ -34,15 +34,15 @@
                                                var="cliCodigoItem"
                                                itemValue="#{cliCodigoItem}"/>
                             </p:selectOneMenu>
-                            
+
                             <p:commandButton actionListener="#{compraController.create()}"
-                                         value="Iniciar Venda"
-                                         partialSubmit="true"
-                                         process="oppVenda"
-                                         update=":frmCompraProduto:growl, oppVenda"/>
+                                             value="Iniciar Venda"
+                                             partialSubmit="true"
+                                             process="oppVenda"
+                                             update=":frmCompraProduto:growl, oppVenda"/>
 
                         </h:panelGrid>
-                        
+
                     </p:outputPanel>
 
                 </p:fieldset>
@@ -61,12 +61,12 @@
                             <p:inputText id="cprQuantidade" value="#{compraprodutoController.selected.cprQuantidade}" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}" required="true" requiredMessage="#{bundle.CreateCompraprodutoRequiredMessage_cprQuantidade}"/>
 
                             <p:commandButton actionListener="#{compraprodutoController.create()}"
-                                         value="Adicionar Produto"
-                                         partialSubmit="true"
-                                         process="oppVendaProduto"
-                                         update=":frmCompraProduto:growl, oppVendaProduto"/>
+                                             value="Adicionar Produto"
+                                             partialSubmit="true"
+                                             process="oppVendaProduto"
+                                             update=":frmCompraProduto:growl, oppVendaProduto"/>
                         </h:panelGrid>
-                        
+
 
                     </p:outputPanel>
 
@@ -78,10 +78,10 @@
                                  rowsPerPageTemplate="5,10,15">
 
                         <p:column headerText="Codigo">
-                            <h:outputText value="#{produto.codigo}" />
+                            <h:outputText value="#{produto.prdCodigo}" />
                         </p:column>
                         <p:column headerText="Descrição">
-                            <h:outputText value="#{produto.descricao}" />
+                            <h:outputText value="#{produto.prdDescricao}" />
                         </p:column>
 
                         <p:column headerText="Valor">
@@ -99,22 +99,25 @@
                     </p:dataTable>
                 </p:fieldset>
                 <p:fieldset  style="margin-bottom:20px">
-                    <h:panelGrid columns="5">
-                        <p:outputLabel value="Quantidade de Itens" for="cprQuantidadeItens" />
-                        <p:inputText id="cprQuantidadeItens" value="#{compraController.selected.cprCodigo}" title="Quantidade de Ítens"/>
-
-                        <p:outputLabel value="Valor Total" for="cprValorTotal" />
-                        <p:inputText id="cprValorTotal" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}"/>
-
-
-                    </h:panelGrid>
                     <p:outputPanel id="oppFinalizarVendaProduto">
-                        <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
-                                         value="Finalizar Venda"
-                                         partialSubmit="true"
-                                         process="oppFinalizarVendaProduto"
-                                         update=":frmCompraProduto:growl, oppFinalizarVendaProduto, oppVenda, dtProdutos"/>
+                        <h:panelGrid columns="5">
+
+                            <p:outputLabel value="Quantidade de Itens" for="cprQuantidadeItens" />
+                            <p:inputText id="cprQuantidadeItens" value="#{compraController.selected.cprCodigo}" title="Quantidade de Ítens"/>
+
+                            <p:outputLabel value="Valor Total" for="cprValorTotal" />
+                            <p:inputText id="cprValorTotal" title="#{bundle.CreateCompraprodutoTitle_cprQuantidade}"/>
+
+                            <p:commandButton actionListener="#{compraController.prepareCreateGeral()}"
+                                             value="Finalizar Venda"
+                                             partialSubmit="true"
+                                             process="oppFinalizarVendaProduto"
+                                             update=":frmCompraProduto:growl, oppFinalizarVendaProduto, oppVenda, dtProdutos"/>
+
+                        </h:panelGrid>
+
                     </p:outputPanel>
+
                 </p:fieldset>
 
             </h:form>
