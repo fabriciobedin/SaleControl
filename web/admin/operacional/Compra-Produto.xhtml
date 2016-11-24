@@ -69,27 +69,27 @@
                                              partialSubmit="true"
                                              process="oppVendaProduto"
                                              style="width: 100%"
-                                             update=":frmCompraProduto:growl, oppVendaProduto"/>
+                                             update=":frmCompraProduto:growl, oppVendaProduto, dtProdutos"/>
 
 
                     </p:outputPanel>
 
                 </p:fieldset>
                 <p:fieldset style="margin-bottom:20px">
-                    <p:dataTable id="dtProdutos" var="produto" value="#{produtoMB.produtos}"
+                    <p:dataTable id="dtProdutos" var="produto" value="#{compraprodutoController.itemsAvailableSelectMany}"
                                  paginator="true"
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15">
 
-                        <p:column headerText="Codigo">
+                        <p:column headerText="Codigo" width="5%">
                             <h:outputText value="#{produto.prdCodigo}" />
                         </p:column>
-                        <p:column headerText="Descrição">
-                            <h:outputText value="#{produto.prdDescricao}" />
+                        <p:column headerText="Descrição" width="30%">
+                            <h:outputText value="#{produto.prdCodigo.prdDescricao}" />
                         </p:column>
 
-                        <p:column headerText="Valor">
-                            <h:outputText value="#{produto.prdValorUnitario}"/>
+                        <p:column headerText="Valor" width="">
+                            <h:outputText value="#{produto.prdCodigo.prdValorUnitario}"/>
                         </p:column>
                         <p:column headerText="Quantidade">
                             <h:outputText value="#{compraprodutoController.selected.cprQuantidade}"/>
