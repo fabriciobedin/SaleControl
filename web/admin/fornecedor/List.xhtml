@@ -27,71 +27,71 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column width="4%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnCodigo}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnCodigo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="7%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnNome}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnNome}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="6%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnCategoria}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnCategoria}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="15%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnRazaoSocial}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnRazaoSocial}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="10%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnCnpj}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnCnpj}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="8%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnTelefone}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnTelefone}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="17%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnEmail}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnEmail}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="11%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnSite}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnSite}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="22%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnEndereco}"/>
                             </f:facet>
                             <h:outputText value="#{item.frnEndereco}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="7%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_frnBloqueado}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.frnBloqueado}" disabled="true"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="14%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFornecedorTitle_cidCodigo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.cidCodigo}"/>
+                            <h:outputText value="#{item.cidCodigo.cidDescricao} - #{item.cidCodigo.ufCodigo.ufSigla}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{fornecedorController.prepareCreate}" update=":FornecedorCreateForm" oncomplete="PF('FornecedorCreateDialog').show()"/>

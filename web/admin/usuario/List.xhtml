@@ -27,53 +27,47 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column width="4%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrCodigo}"/>
                             </f:facet>
                             <h:outputText value="#{item.usrCodigo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="15%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrNome}"/>
                             </f:facet>
                             <h:outputText value="#{item.usrNome}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="8%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrLogin}"/>
                             </f:facet>
                             <h:outputText value="#{item.usrLogin}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_usrSenha}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usrSenha}"/>
-                        </p:column>
-                        <p:column>
+                        <p:column width="9%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrTelefone}"/>
                             </f:facet>
                             <h:outputText value="#{item.usrTelefone}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="18%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrEmail}"/>
                             </f:facet>
                             <h:outputText value="#{item.usrEmail}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="7%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_usrAdm}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.usrAdm}" disabled="true"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="14%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_cidCodigo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.cidCodigo}"/>
+                            <h:outputText value="#{item.cidCodigo.cidDescricao} - #{item.cidCodigo.ufCodigo.ufSigla}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>

@@ -24,10 +24,9 @@
                 
                     <p:menubar>
                         <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-plus">
+                            <p:menuitem value="Usuário" outcome="/admin/usuario/List.xhtml" />
                             <p:menuitem value="Cidade" outcome="/admin/cidade/List.xhtml" />
-                            <p:menuitem value="Cliente" outcome="/admin/cliente/List.xhtml" />
-                            <p:menuitem value="Uf" outcome="/admin/uf/List.xhtml" />
-                            <p:menuitem value="Usuario" outcome="/admin/usuario/List.xhtml" />
+                            <p:menuitem value="UF" outcome="/admin/uf/List.xhtml" />                            
                         </p:submenu>
                         
                         <p:menuitem value="Produtos" outcome="/admin/produto/List.xhtml" icon="ui-icon-search" />
@@ -36,12 +35,7 @@
                         <p:menuitem value="Nova Venda" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-cart"/>
                         <p:menuitem value="Relatórios" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-clipboard"/>
                         <p:menuitem value="Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left" icon="ui-icon-extlink"/>
-                        
-                        
-                       
                     </p:menubar>
-                           
-
                 </h:form>
             </p:layoutUnit>
 

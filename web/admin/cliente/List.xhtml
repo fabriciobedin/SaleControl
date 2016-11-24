@@ -27,53 +27,53 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column width="4%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliCodigo}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliCodigo}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="17%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliNome}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliNome}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="8%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliCpf}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliCpf}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="8%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliTelefone}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliTelefone}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="14%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliEmail}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliEmail}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="27%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliEndereco}"/>
                             </f:facet>
                             <h:outputText value="#{item.cliEndereco}"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="5%">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClienteTitle_cliBloqueado}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.cliBloqueado}" disabled="true"/>
                         </p:column>
-                        <p:column>
+                        <p:column width="15%">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_cidCodigo}"/>
+                                <h:outputText value="Cidade"/>
                             </f:facet>
-                            <h:outputText value="#{item.cidCodigo}"/>
+                            <h:outputText value="#{item.cidCodigo.cidDescricao} - #{item.cidCodigo.ufCodigo.ufSigla}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{clienteController.prepareCreate}" update=":ClienteCreateForm" oncomplete="PF('ClienteCreateDialog').show()"/>
