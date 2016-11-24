@@ -4,9 +4,12 @@ import io.github.fabriciobedin.salecontrol.entity.Cidade;
 import io.github.fabriciobedin.salecontrol.face.util.JsfUtil;
 import io.github.fabriciobedin.salecontrol.face.util.JsfUtil.PersistAction;
 import io.github.fabriciobedin.salecontrol.bean.CidadeFacade;
+import io.github.fabriciobedin.salecontrol.face.util.Relatorio;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,6 +163,18 @@ public class CidadeController implements Serializable {
             }
         }
 
+    }
+    
+    public void executarRelatorioCidadeAll(){
+        Relatorio relatorio = new Relatorio();
+        //definindo o caminho do relatorio a ser executado
+        String caminhoRelatorio = "/admin/relatorio/rel_cidade_all.jasper";
+        Map<String, Object> parametros = new HashMap<String, Object>();
+        //parametros.put("NomeDoParamentroNoRelatorio", "valorDoParametro");
+        
+        //chamar a execução do relatório
+        relatorio.executarRelatorio(caminhoRelatorio, parametros);
+        
     }
 
 }

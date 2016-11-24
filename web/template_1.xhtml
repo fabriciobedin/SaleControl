@@ -34,6 +34,11 @@
                         <p:menuitem value="Fornecedores" outcome="/admin/fornecedor/List.xhtml" icon="ui-icon-suitcase" />
                         <p:menuitem value="Nova Venda" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-cart"/>
                         <p:menuitem value="Relatórios" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-clipboard"/>
+                        <p:submenu label="Relatórios" icon="ui-icon-clipboard">
+                            <p:menuitem value="Usuário" outcome="/admin/usuario/List.xhtml" />
+                            <p:menuitem value="Cidade" outcome="/admin/cidade/List.xhtml" />
+                            <p:menuitem value="UF" outcome="/admin/uf/List.xhtml" />                            
+                        </p:submenu>
                         <p:menuitem value="Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left" icon="ui-icon-extlink"/>
                     </p:menubar>
                 </h:form>

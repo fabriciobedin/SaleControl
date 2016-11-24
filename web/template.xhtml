@@ -33,7 +33,15 @@
                         <p:menuitem value="Clientes" outcome="/admin/cliente/List.xhtml" icon="ui-icon-person"/>
                         <p:menuitem value="Fornecedores" outcome="/admin/fornecedor/List.xhtml" icon="ui-icon-suitcase" />
                         <p:menuitem value="Nova Venda" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-cart"/>
-                        <p:menuitem value="Relatórios" outcome="/admin/operacional/Compra-Produto.xhtml" icon="ui-icon-clipboard"/>
+                        <p:submenu label="Relatórios" icon="ui-icon-clipboard">
+                            <p:menuitem value="Produtos"  />
+                            <p:menuitem value="Fornecedores" actionListener="#{fornecedorController.executarRelatorioFornecedorAll()}" ajax="false" />
+                            <p:menuitem value="Clientes" actionListener="#{clienteController.executarRelatorioClienteAll()}" ajax="false" />
+                            <p:menuitem value="Vendas" outcome="/admin/compra/List.xhtml" />
+                            <p:menuitem value="Cidades" actionListener="#{cidadeController.executarRelatorioCidadeAll()}" ajax="false"  />
+                            <p:menuitem value="UFs" actionListener="#{ufController.executarRelatorioUFAll()}" ajax="false" />
+                            <p:menuitem value="Usuários" outcome="/admin/usuario/List.xhtml" />
+                        </p:submenu>
                         <p:menuitem value="Sair" action="#{usuarioAcessoController.logout()}" style="text-align: left" icon="ui-icon-extlink"/>
                     </p:menubar>
                 </h:form>
